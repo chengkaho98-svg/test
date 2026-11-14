@@ -2,6 +2,10 @@
 
 A single-page marketing site built for qualified lead generation: React 19 + Vite + Tailwind CSS 3, no component library.
 
+**Live:** https://chengkaho98-svg.github.io/test/
+
+Deployed to GitHub Pages by `.github/workflows/deploy.yml`. The Vite `base` is derived at build time, so local dev stays on `/` while Pages serves the `/test/` subpath.
+
 ## Run
 
 ```bash
@@ -50,7 +54,8 @@ All styling is Tailwind utilities. `src/index.css` only contains the three Tailw
 - **Brand, services, FAQs, metrics** — edit `src/data/site.js`; components read from it.
 - **Colours and fonts** — edit `tailwind.config.js`; the palette is used through semantic tokens.
 - **Form backend** — `handleSubmit` in `src/components/Contact.jsx` currently simulates a request. Replace the `setTimeout` with a `fetch` to your CRM or form endpoint. Client-side validation, honeypot and success state are already wired.
-- **Canonical/OG URLs** — update the `aurelian.example.com` URLs in `index.html`, `public/robots.txt` and `public/sitemap.xml`.
+- **Canonical/OG URLs** — the Pages URLs live in `index.html`, `public/robots.txt` and `public/sitemap.xml`.
+- **Deploying elsewhere** — the `base` in `vite.config.js` falls back to `/`, which suits a custom domain or root-hosted deployment.
 
 ## Accessibility & performance notes
 
@@ -59,5 +64,3 @@ All styling is Tailwind utilities. `src/index.css` only contains the three Tailw
 - Scroll reveals, counters, smooth scrolling and the rotating hero arc all respect `prefers-reduced-motion`.
 - Lighthouse (desktop): Accessibility 100, Best Practices 100, SEO 100.
 - Checked for horizontal overflow at 375, 768 and 1280 px.
-
-# test
